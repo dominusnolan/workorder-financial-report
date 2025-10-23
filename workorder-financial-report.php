@@ -24,23 +24,23 @@ class Workorder_Financial_Report {
 
     public function register_menus() {
         add_menu_page(
-			'Financial Reports',
-			'Financial Reports',
-			'manage_options',
-			'financial-reports',
-			[new Financial_Report_Yearly(), 'render_page'],
-			'dashicons-chart-bar',
-			6
-		);
+            'Financial Reports',
+            'Financial Reports',
+            'manage_options',
+            'financial-reports',
+            [new Financial_Report_Yearly(), 'render_page'],
+            'dashicons-chart-bar',
+            6
+        );
 
-		// Rename top-level to "Yearly Report" so submenu list looks clean
-		global $submenu;
-		add_action('admin_menu', function() {
-			global $submenu;
-			if (isset($submenu['financial-reports'][0])) {
-				$submenu['financial-reports'][0][0] = 'Yearly Report';
-			}
-		});
+        // Rename top-level to "Yearly Report" so submenu list looks clean
+        global $submenu;
+        add_action('admin_menu', function() {
+            global $submenu;
+            if (isset($submenu['financial-reports'][0])) {
+                $submenu['financial-reports'][0][0] = 'Yearly Report';
+            }
+        });
 
         add_submenu_page(
             'financial-reports',
